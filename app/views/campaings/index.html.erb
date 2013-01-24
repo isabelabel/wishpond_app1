@@ -1,0 +1,159 @@
+
+<div class="row" style="margin-left: 40px; margin-top: 20px;">
+
+	<div id="myCarousel" class="carousel slide">
+		<div class="carousel-inner">
+		<% i=0 %>
+		<% name_div = "item active"%>
+		<% @campaings.each do |campaing| %>
+		<!-- Carousel items -->
+
+  			<% if i>4 then name_div="item" end%>
+  			
+  			<div class="<%=name_div%>" id ="<%= i%>" >
+			
+			<div class="borderMin">
+				
+				
+					<div class="contentMin">
+						<% if campaing.photo.exists? then %>
+							<img src="<%= campaing.photo.url(:thumb)%>" class="img-polaroid" id="displayed">
+							<!--<%= image_tag campaing.photo.url(:thumb) %>-->
+						<% end %>
+
+						
+						<div class="contentText">
+							<h5 style="text-align:center; color:#2E64FE"> <%= campaing.name %> </h5>
+							<p style="font-size: 8pt"> <%= campaing.description %> </p>
+						</div>
+						<!--<p> Name: <%= campaing.name %></p>
+						<p> Description: <%= campaing.description %> </p>
+						<p> Participants: <%= campaing.participants %> </p>
+						<p> Start: <%= campaing.start_date %> </p>
+						<p> End: <%= campaing.end_date %> </p>-->
+
+						 
+						 
+						<div class="infoBottom">
+							<div class="textBottom">
+								<strong><%= campaing.participants %> </strong> <br /> PARTICIPANTS
+							</div>
+
+							<div class="textBottom">
+								<!--<strong><%= distance_of_time_in_words(campaing.end_date, campaing.start_date, include_seconds = false) %></strong>-->
+								<strong><%= ((campaing.end_date - campaing.start_date)/86400).to_i %></strong> <br /> DAYS TO FINISH
+							</div>
+
+						</div>
+						<%= i %>
+					</div>
+
+
+				
+					<%= link_to 'Edit', action: 'edit', id: campaing %>
+				</div>
+			
+		</div>
+		<%i += 1%>
+
+		<% end %>
+		</div>
+	</div>
+
+	 <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+	
+</div>
+
+<br />
+<%= link_to 'New', action: 'new' %>
+
+<script>
+
+
+
+	$("a.carousel-control.right").click(function(){
+        
+        var total_items = $('#myCarousel').find('.item').size();
+        var item_activo1 = $('#myCarousel .carousel-inner .item.active');
+    	var item_activo_last = $('#myCarousel').find(item_activo1).index() + $('#myCarousel').find('.item.active').size() - 1;
+
+		if (item_activo_last != (total_items - 1)){
+    	
+    		for(var i = 0; i < $('#myCarousel').find('.item').size(); i++) {
+        		var item = $('#myCarousel').find('.item').get(i);                         
+        		$('#myCarousel').find(item).removeClass('active');
+    		}
+
+    		
+    		var new_first_active = item_activo_last + 1;
+
+    	
+            var possible_last = new_first_active + 5;
+            var last_item = $('#myCarousel').find('.item').size();
+
+            var condicao = 0;
+            if( possible_last > last_item ) {
+                condicao = last_item;
+            }
+            else{
+                condicao = possible_last;
+            }
+    
+
+            for(var q=new_first_active; q < condicao; q++){
+                var new_active = $('#myCarousel .carousel-inner').find('.item').get(q);
+                
+                if(new_active != 'undefined'){
+                	$('#myCarousel').find(new_active).addClass('active');	
+                }
+                
+            }
+
+            
+        }
+
+    });
+
+
+
+	$("a.carousel-control.left").click(function(){
+        
+        var total_items = $('#myCarousel').find('.item').size();
+        var item_activo1 = $('#myCarousel .carousel-inner .item.active');
+    	var item_activo_last = $('#myCarousel').find(item_activo1).index() + $('#myCarousel').find('.item.active').size() - 1;
+
+		var indice_1 = $('#myCarousel').find(item_activo1).index();
+
+		
+
+		if(indice_1 > 0){
+
+			for(var i = 0; i < $('#myCarousel').find('.item').size(); i++) {
+        		var item = $('#myCarousel').find('.item').get(i);                         
+        		$('#myCarousel').find(item).removeClass('active');
+    		}
+
+    		
+    		var new_first_active = indice_1 - 5;
+
+
+            for(var q=new_first_active; q < (new_first_active + 5); q++){
+                var new_active = $('#myCarousel .carousel-inner').find('.item').get(q);
+                
+                if(new_active != 'undefined'){
+                	$('#myCarousel').find(new_active).addClass('active');	
+                }
+                
+            }
+
+		}
+		
+
+    });
+
+
+
+
+</script>

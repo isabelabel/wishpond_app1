@@ -1,0 +1,21 @@
+<% if @campaing.errors.any? %>
+	<ul>
+		<% @campaing.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for :campaing, url: {action: 'update', id: @campaing} do |f| %>
+
+	Name: <%= f.text_field :name %><br/>
+	Description: <%= f.text_field :description %><br/>
+	Participants: <%= f.number_field :participants %><br/>
+	Start: <%= f.date_select :start_date %><br/>
+	End: <%= f.date_select :end_date %><br/>
+	Photo: <%= f.file_field :photo %><br />
+
+	<%= submit_tag 'Update' %>
+<% end %>
+
+<%= link_to 'Back', action: 'index' %>

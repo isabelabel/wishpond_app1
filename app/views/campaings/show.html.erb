@@ -1,0 +1,13 @@
+
+<% if @campaing.photo.exists? then %>
+		<%= image_tag @campaing.photo.url(:small) %>
+<% end %>
+
+
+<p> Name: <%= @campaing.name %> </p>
+<p> Description: <%= @campaing.description %></p> 
+<p> Participants: <%= @campaing.participants %> </p>
+<p> Start: <%= @campaing.start_date %> </p>
+<p> End: <%= @campaing.end_date %> </p>
+
+<%= link_to 'Back', {action: 'index' } %>

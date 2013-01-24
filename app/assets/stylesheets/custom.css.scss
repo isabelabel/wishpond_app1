@@ -1,0 +1,79 @@
+@import 'bootstrap';
+
+$border-color: #eee;
+
+.span3 {
+  	background:$border-color;
+ 	@include border-radius(8px);
+ 	width:220px;
+ 	height:300px;
+}
+
+
+.borderMin
+{
+	float:left;
+	background:$border-color;
+ 	@include border-radius(8px);
+ 	width:220px;
+ 	height:350px;
+ 	margin-right: 14px;
+}
+
+.contentMin
+{
+ 	float:left;
+ 	background:#FFF;
+ 	@include border-radius(8px);
+ 	width:210px;
+ 	height:340px;
+ 	margin:5px;
+}
+
+.contentText{
+	width:210px;
+ 	height:170px;
+
+}
+
+.displayed {
+
+    display: block;
+
+    margin-left: auto;
+
+    margin-right: auto 
+}
+
+.infoBottom{
+	
+	background: #F2F2F2;
+	height: 40px;
+	width: 210px;
+	font-size: 11px;
+	position: absolute;
+	@include border-radius(0px 0px 8px 8px);
+}
+
+.textBottom{
+	float:left;
+	color: #848484;
+	margin-right: 16px;
+}
+
+.active.item{
+	float:left;
+	position: relative;
+}
+
+.carousel-inner{
+	
+	margin-left: 30px;	
+	display: block;
+    margin-right: auto 
+}
+
+.carousel.slide{
+	width: 10000px;
+}
+

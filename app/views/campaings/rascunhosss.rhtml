@@ -1,0 +1,281 @@
+<script> 
+$('#myCarousel').hover(function () {   
+  $(this).carousel('pause')   
+}
+
+$("#carousel-control.right").click(function(){   
+	var indice = document.getElementById('active.item').selectedIndex;  
+	alert(document.getElementById('active.item').options[indice].value); 
+	var item = $('#myCarousel .carousel-inner .item.active');
+    if (item == 0){
+
+    }
+});    
+
+$('#myCarousel').bind('slide', function() {
+    var item = $('#myCarousel .carousel-inner .item.active');
+    document.write(item);
+    $('myCarousel').carousel(2).('pause');
+    alert(item);
+});​
+
+$("#myCarousel").bind("slid", function(){
+    alert( $("#myCarousel .active").attr('id') )
+  })
+
+
+	$('.carousel').carousel({
+  		$('myCarousel').carousel(2).('pause');
+	})
+
+ </script>  
+
+
+
+<script>
+
+$(document).ready(
+        function() {
+                $('.carousel[id]').each(
+                        function() {
+                                var html = '<div class="carousel-nav " data-target="' + $(this).attr('id') + '"><ul>';
+                                
+                                for(var i = 0; i < $(this).find('.item').size(); i ++) {
+                                        html += '<li><a';
+                                        if(i == 0) {
+                                                html += ' class="active"';
+                                        }
+                                        
+                                        var item = $(this).find('.item').get(i);
+                                    
+                                        html += ' href="#">• '  + $(item).attr('data-title') + '</a></li>';
+                                }
+                                
+                                html += '</ul></li>';
+                                $(this).after(html);
+                                $('.carousel-control.left[href="#' + $(this).attr('id') + '"]').hide();
+                        }
+                ).bind('slid',
+                        function(e) {
+                                var nav = $('.carousel-nav[data-target="' + $(this).attr('id') + '"] ul');
+                                var index = $(this).find('.item.active').index();
+                                var item = nav.find('li').get(index);
+                                
+                                nav.find('li a.active').removeClass('active');
+                                $(item).find('a').addClass('active');
+                                
+                                if(index == 0) {
+                                        $('.carousel-control.left[href="#' + $(this).attr('id') + '"]').fadeOut();
+                                } else {
+                                        $('.carousel-control.left[href="#' + $(this).attr('id') + '"]').fadeIn();
+                                }
+                                
+                                if(index == nav.find('li').size() - 1) {
+                                        $('.carousel-control.right[href="#' + $(this).attr('id') + '"]').fadeOut();
+                                } else {
+                                        $('.carousel-control.right[href="#' + $(this).attr('id') + '"]').fadeIn();
+                                }
+                        }
+                );
+                
+                $('.carousel-nav a').bind('click',
+                        function(e) {
+                                var index = $(this).parent().index();
+                                var carousel = $('#' + $(this).closest('.carousel-nav').attr('data-target'));
+                                
+                                carousel.carousel(index);
+                                e.preventDefault();
+                        }
+                );
+            
+                
+        }
+);
+
+$(this).after($('.item.active[id]').index());
+
+
+
+                          for(var i = 0; i < $(this).find('.item.active').size(); i ++) {
+                            var item = $(this).find('.item.active').get(i);
+
+                            $(this).after(item_activo);
+                            $(this).find(item).removeClass('active');
+                          }
+
+                          for(var i=item_activo*5; i<(item_activo*5 + 5); i++){
+                            
+                            $(this).find(i).addClass('active');
+                          }
+
+
+
+
+$(document).ready(
+        function() {
+                $('.carousel[id]').each(
+                        function() {
+
+                          var item_activo = $(this).find('.item.active').get(i);  
+
+                          for(var i = 0; i < $(this).find('.item').size(); i++) {
+                              var item = $(this).find('.item').get(i);
+
+                              
+                              $(this).find(item).removeClass('active');
+
+                            }
+
+
+                            var condicao = 0;
+                            var aux1 = $(this).find(item_activo).index();
+                            var aux2 = aux1+5;
+                            aux2 += 4;
+
+                            var aux3 = $(this).find('.item').size();
+                            if( aux2 > aux3 ) {
+                              condicao = $(this).find('.item').size();
+                            }
+                            else{
+                              condicao = (aux1*5 + 5);
+                            }
+
+
+                            for(var q=(item_activo + 5); q < condicao; q++){
+                              $(this).find(q).addClass('active');
+                              $(this).after($(this).find(q).index());
+                            }
+
+                            
+                            
+                            
+                               
+                        }
+                );
+                
+                
+            
+                
+        }
+);
+
+
+for(var i = 0; i < $(this).find('.item').size(); i++) {
+        var item = $(this).find('.item').get(i);
+
+                              
+        $(this).find(item).removeClass('active');
+
+    }
+    var item_activo = $(this).find('.item.active').get(i);
+
+
+    for(var q=(item_activo + 5); q < condicao; q++){
+        $('#myCarousel').find(q).addClass('active');
+        $('#myCarousel').after($('#myCarousel').find(q).index());
+    }
+
+
+
+var condicao = 0;
+    var aux1 = $('#myCarousel').find(item_activo).index();
+    var aux2 = aux1+5+4;
+
+
+    var aux3 = $('#myCarousel').find('.item').size();
+    if( aux2 > aux3 ) {
+        condicao = aux3;
+        $('#myCarousel').after($('#myCarousel').find(0).index());
+    }
+    else{
+        condicao = (aux2 + 5);
+    }
+
+    $('#myCarousel').after($('#myCarousel').find(condicao).index());
+
+
+
+    var item_activo = $('#myCarousel .carousel-inner .item.active');
+    document.write($('#myCarousel').find('.item.active').size());
+    for(var i = 0; i < $('#myCarousel').find('.item').size(); i++) {
+        var item = $('#myCarousel').find('.item').get(i);
+                
+        $('#myCarousel').find(item).removeClass('active');
+    }
+
+    var aux1 = $('#myCarousel').find(item_activo).index() - 1;
+    var aux2 = aux1+5+4;
+    
+    var aux3 = $('#myCarousel').find('.item').size();
+
+    if( aux2 > aux3 ) {
+        condicao = aux3;
+    }
+    else{
+        condicao = (aux2 + 5);
+    }
+    
+    
+    var item2 = 0;
+
+    for(var q=(aux1 + 5); q < condicao; q++){
+       item2 = $('#myCarousel').find('.item').get(q);
+       document.write();
+       $('#myCarousel').find(item2).addClass('active');
+    }
+
+
+
+
+    $("#carousel-control.right").click(function(){
+        document.write(new_first_active );  
+        if (item_activo_last != (total_items - 1)){
+            var possible_last = new_first_active + 5;
+            var last_item = $('#myCarousel').find('.item').size();
+
+            var condicao = 0;
+            if( possible_last > last_item ) {
+                condicao = last_item;
+            }
+            else{
+                condicao = possible_last;
+            }
+    
+    
+            var new_active = 0;
+
+            for(var q=new_first_active; q < condicao; q++){
+                new_active = $('#myCarousel').find('.item').get(q);
+                document.write(new_active);
+                $('#myCarousel').find(new_active).addClass('active');
+            }
+        }
+
+    });
+
+
+    $('#myCarousel').bind('slid', function() {
+
+    var item_activo1 = $('#myCarousel .carousel-inner .item.active');
+    var item_activo_last = $('#myCarousel').find(item_activo1).index() - 1 + $('#myCarousel').find('.item.active').size() - 1;
+
+    for(var i = 0; i < $(this).find('.item').size(); i++) {
+        var item = $(this).find('.item').get(i);                         
+        $(this).find(item).removeClass('active');
+    }
+
+    var total_items = $('#myCarousel').find('.item').size();
+    var new_first_active = item_activo_last + 1;
+
+
+    
+    
+    
+
+
+                            
+});
+
+    
+
+</script>
