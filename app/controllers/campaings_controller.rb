@@ -45,4 +45,12 @@ class CampaingsController < ApplicationController
 	def teste
 
 	end
+
+	def index_new
+		@campaings = Campaing.order("participants DESC")
+	end
+
+	def testeExemplos
+
+	end
 end

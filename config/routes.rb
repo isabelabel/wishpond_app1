@@ -1,4 +1,13 @@
 CampaingsApp::Application.routes.draw do
+  resources :campaigns
+
+  get "browse/home"
+
+  get "browse/about"
+
+  get "browse/help"
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,164 @@
+@import 'bootstrap';
+@import "bootstrap-responsive";
+
+.navbar-inner{
+	background-image:none;
+}
+
+.body{
+	padding-top: 60px;
+}
+
+
+// aplication layout
+.brand.wishpond{
+	color: #00aaff;
+	font-weight: bold;
+}
+.navbar-inner{
+	background-color: #fff;
+}
+.banner{
+	width: 300px;
+	background-color: #000;
+	height: 90px;
+	margin: auto;
+	border-radius: 5px;
+	margin-top: -20px;
+}
+
+
+// css for campaigns
+
+.box{float:left;margin-right: 20px;;}
+
+$border-color: #eee;
+
+.span3 {
+  	background:$border-color;
+ 	@include border-radius(8px);
+ 	width:220px;
+ 	height:300px;
+}
+
+
+.borderMin
+{
+	float:left;
+	background:$border-color;
+ 	@include border-radius(8px);
+ 	width:220px;
+ 	height:350px;
+ 	margin-right: 14px;
+}
+
+.contentMin
+{
+ 	float:left;
+ 	background:#FFF;
+ 	@include border-radius(8px);
+ 	width:220px;
+ 	height:340px;
+ 	margin:5px;
+ 	text-align: center;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	border: solid 3px rgb(127, 169, 221);
+}
+
+.img-polaroid{
+	margin: 5px;
+}
+
+.contentText{
+	width:210px;
+ 	height:170px;
+ 	margin-left: 5px;
+}
+
+.displayed {
+
+    display: block;
+
+    margin-left: auto;
+
+    margin-right: auto 
+}
+
+.infoBottom{
+	
+	background: #F2F2F2;
+	height: 50px;
+	width: 220px;
+	font-size: 11px;
+	position: absolute;
+	@include border-radius(0px 0px 8px 8px);
+	margin-top: -23px;
+	border-top: solid 1px rgb(127, 169, 221);
+}
+
+.textBottom{
+	float:left;
+	color: rgb(113, 114, 116);
+	margin-right: 16px;
+	font-weight: bold;
+	margin-left:5px;
+}
+
+.textNParticipants{
+	color: #FFF;
+	margin-left:16px;
+	margin-top: 3px;
+}
+
+.img_participants{
+	width:19px;
+	height:19px;
+	position: absolute;
+	margin-top: -3px;
+}
+
+.img_calendar{
+	width:19px;
+	height:19px;
+	position: absolute;
+	margin-top: -3px;
+}
+
+.boxInfoBottom{
+	margin-left: 7px;
+	margin-top: 4px;
+	width: 45px;
+	height: 18px;
+	border: solid 2px #2169d6;
+	@include border-radius(5px 5px 5px 5px);
+	background-color:  rgb(127, 169, 221);
+}
+
+.textBoxInfoBottom{
+	width: 100%;
+	height: 100%;
+}
+
+.active.item{
+	float:left;
+	position: relative;
+}
+
+.carousel-inner{
+	
+	margin-left: 30px;	
+	display: block;
+    margin-right: auto 
+}
+
+.carousel.slide{
+	width: 10000px;
+}
+
+.brand.wishpond{
+	color: #00aaff;
+	font-weight: bold;
+}
+

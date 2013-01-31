@@ -1,0 +1,75 @@
+.row{:style => "margin-left: 40px; margin-top: 20px;"}
+	.carousel.slide{:id=> "myCarousel"}
+		.carousel-inner
+
+			/VARIABLES
+			- i=0
+			- name_div = "item active"
+		
+			/Taking the "campaigns"
+
+			- @campaings.each do |campaing|
+		
+		
+				- if(i>4) then 
+					- name_div = "item" 
+				
+				
+				/Carousel items
+				%div{:class => "#{name_div}", :style => "width: 250px;"}
+
+					
+			
+					.contentMin
+				
+						-if(campaing.photo.exists?) then
+							%img{:class => "img-polaroid", :id => "displayed", :src => "#{campaing.photo.url(:thumb)}"}
+						
+						.contentText
+							%h5{:style => "text-align:center; color:#2E64FE"}= campaing.name
+							%p{:style => "font-size: 8pt"}= campaing.description
+
+
+						.infoBottom
+							.textBottom	
+								.boxInfoBottom
+									.textBoxInfoBottom
+										.img_participants
+											%img{:style=>"border-radius: 3px 0px 0px 3px;", :src =>"assets/added2.png"} 
+										.textNParticipants
+											%strong= campaing.participants 
+
+								%br PARTICIPANTS
+					
+							.textBottom
+								.boxInfoBottom
+									.textBoxInfoBottom
+										.img_calendar
+											%img{:style=>"border-radius: 3px 0px 0px 3px;", :src =>"assets/calendar1.png"}
+										.textNParticipants
+											%strong{:style=>"color: #FFF;"}=((campaing.end_date - campaing.start_date)/86400).to_i 
+								
+								%br  DAYS TO FINISH 		
+
+
+
+				
+					= link_to 'Edit', action: 'edit', id: campaing
+
+				- i+=1
+
+
+	/Carousel nav
+	%a.carousel-control.left{:href=>"#myCarousel", :"data-slide"=>"prev"}&&lsaquo;
+	%a.carousel-control.right{:href=>"#myCarousel", :"data-slide"=>"next"}&&rsaquo;
+
+
+= link_to 'New', action: 'new'
+
+
+%script{:type => "text/javascript",
+        :src  => "assets/functions-carousel.js"}
+
+
+
+
