@@ -1,6 +1,8 @@
 CampaingsApp::Application.routes.draw do
   resources :campaigns
 
+  
+
   get "browse/home"
 
   get "browse/about"

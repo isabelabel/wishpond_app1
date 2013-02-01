@@ -1,12 +1,16 @@
 class BrowseController < ApplicationController
-  def home
-  	@title = "Wishpond"
-  end
+	require 'meu_teste'
+	
+	def home
+		@title = "Wishpond"
+	end
 
-  def about
-  end
+	def about
+		@t = MeuTeste.instance
+	end
 
-  def help
-  end
+	def help
+	
+	end
 
 end
